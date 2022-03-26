@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import WindowContent from '../../styles/components/WindowContent'
 
 interface ResultProps {
   name: string,
-  value: string
+  value: string,
+  input: stirng,
+  start: boolean
 }
 
 const ResultContainer = styled.div`
@@ -11,28 +13,34 @@ const ResultContainer = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
-  background: white;
+  justify-content: flex-start;
+  padding: 10px;
 `
 
-const ObjectShape = styled.div`
-  ${props => { return props.value }}
+const Object = styled.div`
+  transform: scale(2)
 `
 
-export const Result = ({ name, value }: ResultProps) => {
-  const [text, setText] = useState("")
+export const Result = ({ name, value, input, level, start }: ResultProps) => {
 
-  useEffect(() => {
-    if (value !== "" && value !== text) {
-      setText(value)
-    }
-  }, [value])
+  const style = `
+    ${value}
+    ${input}  
+  `
 
   return (
     <ResultContainer>
-      <h3>{name}</h3>
-      <ObjectShape value={text} />
+      <WindowContent
+        width="90%"
+        title={!start ? name : ''}
+        start={start}
+      >
+        <Object>
+          <style>{style}</style>
+          <div className={level}></div>
+        </Object>
+      </WindowContent>
     </ResultContainer>
   )
 }

@@ -1,11 +1,12 @@
 import styled from 'styled-components'
+import WindowCard from '../../styles/components/WindowCard'
 
 interface TimeProps {
   complete: any
 }
 
 const TimeContainer = styled.div`
- 
+  padding: 15px;
 `
 
 const TimeCard = styled.div`
@@ -20,15 +21,24 @@ const TimeCard = styled.div`
   align-items: center;
 `
 
+const TimerCard = styled.span`
+  color: #05f298;
+  font-weight: bolder;
+  margin: 4px 0
+`
+
 const TimeResults = ({ complete }: TimeProps) => {
   return (
     <TimeContainer>
       {complete.map(item => {
         return (
-          <TimeCard key={item.id}>
-            <span>{item.id}</span>
-            <span>{item.timer}</span>
-          </TimeCard>
+          <WindowCard height="85px" width="100%" title={"Nível " + item.nivel}>
+            Concluído em: <TimerCard>{item.timer}</TimerCard>
+          </WindowCard>
+          // <TimeCard key={item.nivel}>
+          //   <span>{item.nivel}</span>
+          //   <span>{item.timer}</span>
+          // </TimeCard>
         )
       })}
     </TimeContainer>

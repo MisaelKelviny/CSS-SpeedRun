@@ -1,8 +1,13 @@
+import { useEffect } from 'react';
 import styled from 'styled-components';
+import NeonText from '../../styles/components/NeonText';
+
+const TimerColor = "#05f298"
+const TimerColorSecondary = "#05f298"
 
 const TimerCounter = styled.div`
-  color: #c4c4c4;
-  font-size: 40px;
+  font-size: 71px;
+  color: ${TimerColor};
 `
 const TimerContainer = styled.div`
   width: 100%;
@@ -13,14 +18,25 @@ const TimerContainer = styled.div`
   justify-content: center;
 `
 
-const Chronometer = ({ startTimer, timer }) => {
+const Chronometer = ({ timer, start }) => {
+  const startTimer = () => {
+    timer.start({ precision: 'secondTenths' });
+  }
+
+  useEffect(() => {
+    if (!start) {
+      startTimer()
+    }
+  }, [start])
+
+
   return (
     <TimerContainer>
-      <div>
-        <button onClick={startTimer}>Começar</button>
-      </div>
       <TimerCounter>
-        <span>{timer.getTimeValues().toString(['minutes', 'seconds', 'secondTenths'])}</span>
+        <NeonText
+          text={timer.getTimeValues().toString(['minutes', 'seconds', 'secondTenths'])}
+          color={TimerColor}
+        />
       </TimerCounter>
     </TimerContainer>
   );

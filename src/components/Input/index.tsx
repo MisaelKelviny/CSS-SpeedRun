@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 interface InputProps {
   onKeyPress: any,
-  onChange: any
+  onChange: any,
+  onKeyDown: any
 }
 
 const InputContainer = styled.div`
@@ -13,8 +14,8 @@ const InputContainer = styled.div`
 `
 
 const InputValue = styled.input`
-  height: 25px;
-  width: 100%;
+  height: 30px;
+  width: 84%;
   border-radius: 5px;
 `
 
@@ -27,6 +28,8 @@ const Button = styled.input`
 const Form = styled.form`
   display: flex;
   width: 100%;
+  position: relative;
+  justify-content: center;
 `
 
 const Input = ({ onKeyPress, onChange, value }: InputProps) => {

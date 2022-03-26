@@ -1,15 +1,19 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import GlitchText from '../../styles/components/GlitchText';
+import WindowCard from '../../styles/components/WindowCard';
 
 interface CodeProps {
   values: string,
   code: any,
   index: number,
+  start: boolean
 }
 
 const CodeContainer = styled.div`
   width: 100%;
   height: 100%;
+  overflow: hidden;
 `
 
 const CodeList = styled.div`
@@ -18,6 +22,7 @@ const CodeList = styled.div`
   display: flex;
   place-content: flex-end;
   flex-direction: column;
+  align-items: center;
 `
 
 const CodeItem = styled.div`
@@ -41,48 +46,60 @@ const CodeResponseLayout = styled.div`
   position: relative;
 `
 
-const Code = ({ code, values, complete }: CodeProps) => {
-  const [text, setText] = useState("")
+const Texts = styled.div`
+  font-size: 30px;
+  margin: 0 auto;
+  text-align: center;
+  color: #ff00cc;
+  whitespace: normal;
+  padding: 10px;
+`
 
+const Code = ({ code, values, complete, index, start }: CodeProps) => {
+  const [text, setText] = useState("")
   useEffect(() => {
-    if (code[0].code.length > 0) {
-      if (code[0].code[0].line.slice(0, values.length) == values && values !== text) {
-        setText(values)
+    if (code[index] != undefined) {
+      if (code[index].code.length > 0) {
+        if (code[index].code[0].line.slice(0, values.length) == values && values !== text) {
+          setText(values)
+        }
       }
     }
-  }, [values, code])
+  }, [values, code, text])
 
   return (
     <CodeContainer>
       <CodeList>
-        {code[0].code.length > 0 ? code[0].code.map(cd => {
-          return (
-            <CodeItem key={cd.id} active={cd.active}>
-              <div>
-                {cd.id}
-              </div>
-              {cd.active ?
-                <CodeResponseLayout>
-                  <CodeResponse>
-                    {text}
-                  </CodeResponse>
+        {start ?
+          <GlitchText
+            text={'Pressione "." no input abaixo para iniciar o jogo!'}
+            size={'30px'}
+          />
+          :
+          code[index] != undefined ? code[index]?.code.map(cd => {
+            return (
+              <WindowCard
+                key={cd.id}
+                width="90%"
+                title={cd.id}
+              >
+                {cd.active ?
+                  <CodeResponseLayout>
+                    <CodeResponse>{text}</CodeResponse>
+                    <code>{cd.line}</code>
+                  </CodeResponseLayout>
+                  :
                   <code>
                     {cd.line}
                   </code>
-                </CodeResponseLayout>
-                :
-                <code>
-                  {cd.line}
-                </code>
-              }
-            </CodeItem>
-          )
-        }).reverse()
-          :
-          <div>
-            <p>Parabéns você completou o nível {code[0].nivel}</p>
-            <button>Proximo Nível</button>
-          </div>
+                }
+              </WindowCard>
+            )
+          }).reverse() :
+            <GlitchText
+              text={'Parabéns você completou o speed run \r\n 🎉✨🎉✨🎉'}
+              size={'30px'}
+            />
         }
       </CodeList>
     </CodeContainer>
