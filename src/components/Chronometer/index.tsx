@@ -1,26 +1,16 @@
-import { useEffect } from 'react';
-import styled from 'styled-components';
-import NeonText from '../../styles/components/NeonText';
+import { useEffect } from 'react'
+import NeonText from '../../styles/components/NeonText'
+import { TimerColor } from '../../styles/Timer'
+import { TimerContainer, TimerCounter } from './style'
 
-const TimerColor = "#05f298"
-const TimerColorSecondary = "#05f298"
+type ChronometerProp = {
+  timer: string,
+  start?: boolean
+}
 
-const TimerCounter = styled.div`
-  font-size: 71px;
-  color: ${TimerColor};
-`
-const TimerContainer = styled.div`
-  width: 100%;
-  heigth: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`
-
-const Chronometer = ({ timer, start }) => {
+const Chronometer = ({ timer, start }: ChronometerProp) => {
   const startTimer = () => {
-    timer.start({ precision: 'secondTenths' });
+    timer.start({ precision: 'secondTenths' })
   }
 
   useEffect(() => {
@@ -29,17 +19,16 @@ const Chronometer = ({ timer, start }) => {
     }
   }, [start])
 
-
   return (
     <TimerContainer>
       <TimerCounter>
         <NeonText
           text={timer.getTimeValues().toString(['minutes', 'seconds', 'secondTenths'])}
-          color={TimerColor}
+          color={TimerColor.PRIMARY}
         />
       </TimerCounter>
     </TimerContainer>
-  );
+  )
 }
 
-export default Chronometer;
+export default Chronometer

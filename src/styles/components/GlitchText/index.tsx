@@ -1,9 +1,5 @@
 import styled from 'styled-components'
-
-type TextProp = {
-  text: string,
-  size: string
-}
+import { TextProp } from '../../model/TextModel'
 
 const Text = styled.div`
   color: white;
@@ -14,7 +10,7 @@ const Text = styled.div`
   margin: 0 auto;
 `
 
-const GlitchText = ({ text, size }) => {
+const GlitchText = ({ text, size }: TextProp) => {
   return (
     <Text size={size}>
       {text}
@@ -22,4 +18,4 @@ const GlitchText = ({ text, size }) => {
   )
 }
 
-export default GlitchText;
+export default GlitchText

@@ -1,0 +1,53 @@
+[
+  {
+  "level": 1,
+  "name": "The circle",
+  "code": [
+      {
+      "id": 1,
+      "line": ".circle{ width: 100px; height: 100px; background: yellow; border-radius: 50% }",
+      "active": true
+      }
+    ],
+  "className": "circle"
+  },
+  {
+  "level": 2,
+  "name": "The Pentagon",
+  "code": [
+      {
+      "id": 1,
+      "line": ".pentagon{ position: relative; width: 54px; box-sizing: content-box; border-width: 50px 18px 0; border-style: solid; border-color: red transparent; }",
+      "active": true
+      },
+      {
+      "id": 2,
+      "line": ".pentagon:before{ content: ''; position: absolute; height: 0; width: 0; top: -85px; left: -18px; border-width: 0 45px 35px; border-style: solid; border-color: transparent transparent red; }",
+      "active": false
+      }
+    ],
+  "className": "pentagon"
+  },
+  {
+  "level": 3,
+  "name": "The Star",
+  "code": [
+      {
+      "id": 1,
+      "line": ".star{ margin: 50px 0; position: relative; display: block; color: red; width: 0px; height: 0px; border-right: 100px solid transparent; border-bottom: 70px solid red; border-left: 100px solid transparent; transform: rotate(35deg); }",
+      "active": true
+      },
+      {
+      "id": 2,
+      "line": ".star:before{ content: ''; border-bottom: 80px solid red; border-left: 30px solid transparent; border-right: 30px solid transparent; position: absolute; height: 0; width: 0; top: -45px; left: -65px; display: block; transform: rotate(-35deg); }",
+      "active": false
+      },
+      {
+      "id": 3,
+      "line": ".star:after{ content: ''; position: absolute; display: block; color: red; top: 3px; left: -105px; width: 0px; height: 0px; border-right: 100px solid transparent; border-bottom: 70px solid red; border-left: 100px solid transparent; transform: rotate(-70deg); }",
+      "active": false
+      }
+    ],
+  "className": "star"
+  }
+]

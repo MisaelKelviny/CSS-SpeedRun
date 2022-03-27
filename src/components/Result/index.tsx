@@ -1,43 +1,31 @@
-import styled from 'styled-components'
-import WindowContent from '../../styles/components/WindowContent'
 
-interface ResultProps {
-  name: string,
-  value: string,
-  input: stirng,
-  start: boolean
-}
+import { ResultsProps } from '../../model/Results'
+import WindowContent from '../../styles/components/Windows/WindowContent'
+import { Object, ResultContainer } from './style'
 
-const ResultContainer = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 10px;
-`
-
-const Object = styled.div`
-  transform: scale(2)
-`
-
-export const Result = ({ name, value, input, level, start }: ResultProps) => {
-
+export const Result = ({
+  name,
+  value,
+  input,
+  level,
+  start
+}: ResultsProps) => {
   const style = `
     ${value}
     ${input}  
   `
-
   return (
     <ResultContainer>
       <WindowContent
-        width="90%"
+        width={'90%'}
+        height={'70%'}
         title={!start ? name : ''}
         start={start}
       >
         <Object>
-          <style>{style}</style>
+          <style>
+            {style}
+          </style>
           <div className={level}></div>
         </Object>
       </WindowContent>
