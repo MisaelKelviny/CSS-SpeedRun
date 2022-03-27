@@ -10,10 +10,10 @@ export const Title = styled.div`
 `
 export const Text = styled.div`
   color: #fff;
-  font-weight: 700;
+  font-weight: 200;
   letter-spacing: 0;
   margin-right: 24px;
-  font-family: "Pixelated MS Sans Serif", Arial;
+  font-family: windowsFont;
 `
 
 export const Controls = styled.div`

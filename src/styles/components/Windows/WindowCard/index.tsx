@@ -27,6 +27,7 @@ const Container = styled.div<Pick<WindowCardProp, 'width' | 'height'>>`
 
 const Content = styled.div`
   padding: 20px;
+  user-select: none;
 `
 
 const WindowCard = ({

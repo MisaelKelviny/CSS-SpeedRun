@@ -1,6 +1,5 @@
 import useTimer from 'easytimer-react-hook'
 import React, { useState } from 'react'
-import './App.css'
 import Chronometer from './components/Chronometer'
 import Code from './components/Code'
 import Input from './components/Input'
