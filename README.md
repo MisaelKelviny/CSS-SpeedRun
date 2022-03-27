@@ -1,7 +1,7 @@
 # CSS SPEED RUN
 ## Vaporwave Edition
 
-A Speed Run writing CSS to create objects in the shortest possible time.
+A writing game using CSS to create objects in the shortest time.
 
 The ideia for this project is to study some technologies like React with styled components with Typescript and Vite.js to create the project with the less size possible in the modern web. 
 
