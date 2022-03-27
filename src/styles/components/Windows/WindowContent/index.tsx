@@ -3,22 +3,28 @@ import WindowsTitle from '../Title'
 
 type WindowProperties = {
   children: any;
-  width: number;
-  height: number;
+  width: string;
+  height: string;
   title: string;
   start?: boolean;
 };
 
-const Container = styled.div`
-  width: ${(props) => props.width};
-  height: ${(props) => props.height};
+interface WindowContainerProp{
+  width: string,
+  height: string,
+  active?: boolean
+}
+
+const Container = styled.div<Pick<WindowContainerProp, 'width' | 'height' | 'active'>>`
+  width: ${(props: any) => props.width};
+  height: ${(props: any) => props.height};
   background: silver;
   box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #dfdfdf,
     inset -2px -2px grey, inset 2px 2px #fff;
   padding: 3px;
   transition: 1s ease-in;
   position: relative;
-  bottom: ${(props) => (props.active ? '-100%' : '0px')};
+  bottom: ${(props: any) => (props.active ? '-100%' : '0px')};
 `
 
 const Content = styled.div`
@@ -44,7 +50,7 @@ const WindowContent = ({
     >
       <WindowsTitle
         text={title}
-        type="content"
+        type={'content'}
       />
       <Content>
         {children}

@@ -3,13 +3,13 @@ import WindowCard from '../../styles/components/Windows/WindowCard'
 import { TimeContainer, TimerCard } from './style'
 
 interface TimeProps {
-  complete: CompleteModel
+  complete: Array<CompleteModel>
 }
 
 const TimeResults = ({ complete }: TimeProps) => {
   return (
     <TimeContainer>
-      {complete.map((item, index) => {
+      {complete.map((item: any, index: any) => {
         return (
           <WindowCard
             key={index}

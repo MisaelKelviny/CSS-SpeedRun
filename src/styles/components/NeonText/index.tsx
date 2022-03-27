@@ -27,12 +27,12 @@ const pulsate = keyframes`
   }
 `
 
-const Text = styled.div`
-  color: ${props => props.color};
+const Texts = styled.div`
+  color: #05f298;
   text-shadow:
-    0 0 7px ${props => props.color},
-    0 0 10px ${props => props.color},
-    0 0 21px ${props => props.color},
+    0 0 7px #05f298,
+    0 0 10px #05f298,
+    0 0 21px #05f298,
     0 0 42px #0fa,
     0 0 82px #0fa,
     0 0 92px #0fa,
@@ -41,11 +41,11 @@ const Text = styled.div`
     animation: ${pulsate} 2.5s infinite alternate
 `
 
-const NeonText = ({ text }: TextProp) => {
+const NeonText = ({ children }: TextProp) => {
   return (
-    <Text>
-      {text}
-    </Text>
+    <Texts>
+      {children}
+    </Texts>
   )
 }
 

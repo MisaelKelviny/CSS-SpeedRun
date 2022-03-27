@@ -6,7 +6,6 @@ import Code from './components/Code'
 import Input from './components/Input'
 import { Result } from './components/Result'
 import TimeResults from './components/TimeResults'
-import { LevelModel } from './model/Levels'
 import { Container, Contents, Game, Grid, Ground, Results, Sidebar } from './styles/MainStyle'
 import level from './level/level.json'
 import { CompleteModel } from './model/Complete'
@@ -26,16 +25,16 @@ function App () {
     timer.pause()
   }
 
-  const [inputValue, setInputValue]: string = useState('')
-  const [start, setStart]: boolean = useState(true)
-  const [codeItem, setCodeItem]: number = useState(0)
-  const [results, setResults]: Array<string> = useState([])
-  const [codeCompleted, setCodeCompleted]: Array<CompleteModel> = useState([])
-  const [codes, setCodes]: Array<LevelModel> = useState(level)
+  const [inputValue, setInputValue] = useState('')
+  const [start, setStart] = useState(true)
+  const [codeItem, setCodeItem] = useState(0)
+  const [results, setResults] = useState([] as any)
+  const [codeCompleted, setCodeCompleted] = useState([] as any)
+  const [codes, setCodes] = useState(level)
 
   const changeValue = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setInputValue(e.target.value)
+    setInputValue((e.target as HTMLTextAreaElement).value)
     if (start) {
       setStart(false)
     }
@@ -51,7 +50,7 @@ function App () {
       setResults(c)
 
       const sliced = codes[codeItem].code.filter(c => !c.active)
-      const comp: CompleteModel = codeCompleted
+      const comp: Array<CompleteModel> = codeCompleted
       if (sliced.length === 0) {
         comp.push({
           level: codes[codeItem].level,

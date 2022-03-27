@@ -17,7 +17,7 @@ export const CodeList = styled.div`
 
 export const CodeItem = styled.div`
   margin: 5px;
-  background: ${props => props.active ? '#121212' : '#181818'};
+  background: ${(props: any) => props.active ? '#121212' : '#181818'};
   border-radius: 3px;
   color: #c4c4c4;
   padding: 10px;

@@ -1,4 +1,3 @@
 export type TextProp = {
-  text: string,
-  size?: number
+  children: any
 }

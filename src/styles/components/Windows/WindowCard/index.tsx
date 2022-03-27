@@ -3,14 +3,19 @@ import WindowsTitle from '../Title'
 
 type WindowProperties = {
   children: any,
-  width: number,
-  height: number,
+  width: string,
+  height?: string,
   title: string
 }
 
-const Container = styled.div`
-  width: ${props => props.width};
-  height:  ${props => props.height};
+interface WindowCardProp{
+  width: string,
+  height?: string
+}
+
+const Container = styled.div<Pick<WindowCardProp, 'width' | 'height'>>`
+  width: ${(props: any) => props.width};
+  height: ${(props: any) => props.height};
   background: #181425;
   box-shadow: inset -1px -1px #0a0a0a, 
               inset 1px 1px #dfdfdf, 
@@ -33,10 +38,12 @@ const WindowCard = ({
   return (
     <Container
       width={width}
-      height={height}>
+      height={height}
+    >
       <WindowsTitle
         text={title}
-        type="card" />
+        type={'card'}
+      />
       <Content>
         {children}
       </Content>

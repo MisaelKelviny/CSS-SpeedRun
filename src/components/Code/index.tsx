@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { CompleteModel } from '../../model/Complete'
 import GlitchText from '../../styles/components/GlitchText'
 import WindowCard from '../../styles/components/Windows/WindowCard'
 import { CodeContainer, CodeList, CodeResponse, CodeResponseLayout } from './style'
@@ -8,14 +7,12 @@ interface CodeProps {
   values: string,
   code: any,
   index: number,
-  start: boolean,
-  complete: CompleteModel
+  start: boolean
 }
 
 const Code = ({
   code,
   values,
-  complete,
   index,
   start
 }: CodeProps) => {
@@ -34,12 +31,11 @@ const Code = ({
     <CodeContainer>
       <CodeList>
         {start
-          ? <GlitchText
-            text={'Pressione "." no input abaixo para iniciar o jogo!'}
-            size={'30px'}
-          />
+          ? <GlitchText>
+            Pressione . no input abaixo para iniciar o jogo!
+          </GlitchText>
           : code[index] !== undefined
-            ? code[index]?.code.map(cd => {
+            ? code[index]?.code.map((cd: any) => {
               return (
                 <WindowCard
                   key={cd.id}
@@ -62,10 +58,9 @@ const Code = ({
                 </WindowCard>
               )
             }).reverse()
-            : <GlitchText
-              text={'Parabéns você completou o speed run' + '\r\n' + '🎉✨🎉✨🎉'}
-              size={'30px'}
-            />
+            : <GlitchText>
+              Parabéns você completou o speed run <br /> 🎉✨🎉✨🎉
+            </GlitchText>
         }
       </CodeList>
     </CodeContainer>

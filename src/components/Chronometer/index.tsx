@@ -1,10 +1,10 @@
+import Timer from 'easytimer.js'
 import { useEffect } from 'react'
 import NeonText from '../../styles/components/NeonText'
-import { TimerColor } from '../../styles/Timer'
 import { TimerContainer, TimerCounter } from './style'
 
 type ChronometerProp = {
-  timer: string,
+  timer: Timer,
   start?: boolean
 }
 
@@ -22,10 +22,9 @@ const Chronometer = ({ timer, start }: ChronometerProp) => {
   return (
     <TimerContainer>
       <TimerCounter>
-        <NeonText
-          text={timer.getTimeValues().toString(['minutes', 'seconds', 'secondTenths'])}
-          color={TimerColor.PRIMARY}
-        />
+        <NeonText>
+          {timer.getTimeValues().toString(['minutes', 'seconds', 'secondTenths'])}
+        </NeonText>
       </TimerCounter>
     </TimerContainer>
   )

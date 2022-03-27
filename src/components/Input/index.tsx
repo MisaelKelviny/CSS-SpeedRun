@@ -1,9 +1,8 @@
 import { Button, Form, InputContainer, InputValue } from './style'
 
 interface InputProps {
-  onKeyPress: () => void,
-  onChange: () => void,
-  onKeyDown: () => void,
+  onKeyPress: any,
+  onChange: any,
   value: string
 }
 
