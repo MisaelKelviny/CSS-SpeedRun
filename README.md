@@ -6,6 +6,7 @@ A writing game using CSS to create objects in the shortest time.
 The ideia for this project is to study some technologies like React with styled components with Typescript and Vite.js to create the project with the less size possible in the modern web. 
 
 So I adopted the Vaporwave design to create the style of this project.
+You can check: https://css-speed-run.vercel.app/
 
 ![image](https://user-images.githubusercontent.com/41343708/160263417-2f628726-8eaf-439f-b271-fe03623e1455.png)
 ![speed](https://user-images.githubusercontent.com/41343708/160263732-1cb15a10-a35b-4dcd-89d9-4aecefaddd0e.gif)
