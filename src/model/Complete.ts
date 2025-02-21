@@ -1,4 +1,5 @@
 export type CompleteModel = {
-  level: number,
-  timer: string
-}
+  level: number;
+  timer: string;
+  shape: any;
+};
