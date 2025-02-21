@@ -1,4 +1,4 @@
-import { Button, Form, InputContainer, InputValue } from "./style";
+import { Button, InputContainer, InputValue, InputWrapper } from "./style";
 
 interface InputProps {
   onKeyPress: any;
@@ -9,10 +9,15 @@ interface InputProps {
 const Input = ({ onKeyPress, onChange, value }: InputProps) => {
   return (
     <InputContainer>
-      <Form onKeyUp={onKeyPress}>
-        <InputValue value={value} type="text" onChange={onChange} />
-        <Button type="submit" value="⚡" />
-      </Form>
+      <InputWrapper>
+        <InputValue
+          value={value}
+          type="text"
+          onChange={onChange}
+          onKeyUp={onKeyPress}
+        />
+        <Button>⚡</Button>
+      </InputWrapper>
     </InputContainer>
   );
 };
